@@ -8,14 +8,11 @@
 
   <style>
     :root {
-      --bg: #0a0d14;
-      --panel: #101622;
-      --panel-2: #151d2b;
-      --text: #f5f7fb;
-      --muted: #9aa6ba;
-      --line: rgba(255, 255, 255, 0.10);
-      --accent: #84d8ff;
-      --max-width: 1180px;
+      --background: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --border: #dddddd;
+      --max-width: 960px;
     }
 
     * {
@@ -28,327 +25,208 @@
 
     body {
       margin: 0;
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at 12% 0%,
-          rgba(132, 216, 255, 0.08),
-          transparent 32rem
-        ),
-        var(--bg);
-
+      background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
     }
 
     a {
       color: inherit;
     }
 
-    .container {
-      width: min(calc(100% - 2rem), var(--max-width));
+    .page {
+      width: min(calc(100% - 40px), var(--max-width));
       margin: 0 auto;
     }
 
-    /* NAV */
+    /* NAVIGATION */
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-
-      background: rgba(10, 13, 20, 0.82);
-      backdrop-filter: blur(14px);
-
-      border-bottom: 1px solid var(--line);
+      padding: 28px 0 18px;
+      border-bottom: 1px solid var(--border);
     }
 
     nav {
-      min-height: 70px;
-
       display: flex;
-      align-items: center;
       justify-content: space-between;
-
-      gap: 1rem;
+      align-items: baseline;
+      gap: 24px;
     }
 
-    .brand {
+    .name {
+      font-size: 18px;
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 750;
-      letter-spacing: -0.03em;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      gap: 18px;
     }
 
     .nav-links a {
       color: var(--muted);
+      font-size: 14px;
       text-decoration: none;
-      font-size: 0.95rem;
     }
 
     .nav-links a:hover {
       color: var(--text);
     }
 
-    /* HERO */
+    /* INTRO */
 
-    .hero {
-      padding: 7rem 0 5rem;
-    }
+    .intro {
+      padding: 60px 0 50px;
 
-    .hero-grid {
       display: grid;
       grid-template-columns: 1.4fr 0.6fr;
-      gap: 3rem;
-      align-items: end;
-    }
-
-    .eyebrow {
-      margin: 0 0 1rem;
-
-      color: var(--accent);
-
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.12;
-      letter-spacing: -0.04em;
+      gap: 50px;
     }
 
     h1 {
+      margin: 0 0 20px;
+
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .intro-description {
+      max-width: 650px;
       margin: 0;
 
-      max-width: 800px;
-
-      font-size: clamp(3.7rem, 8vw, 7rem);
+      font-size: 18px;
     }
 
-    .hero-copy {
-      max-width: 720px;
-
-      margin: 1.5rem 0 0;
-
+    .intro-meta {
       color: var(--muted);
-      font-size: 1.15rem;
+      font-size: 14px;
     }
 
-    .hero-side {
-      color: var(--muted);
-      font-size: 0.98rem;
+    .intro-meta p {
+      margin: 0 0 8px;
     }
 
-    .hero-side strong {
-      color: var(--text);
-    }
-
-    /* GENERAL */
+    /* GENERAL SECTIONS */
 
     section {
-      padding: 5rem 0;
-
-      border-top: 1px solid var(--line);
+      padding: 45px 0;
+      border-top: 1px solid var(--border);
     }
 
-    .section-head {
+    .section-title {
+      margin: 0 0 30px;
+
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    /* PROJECTS */
+
+    .project {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+
+      padding: 30px 0;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .project:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+
       display: flex;
-      justify-content: space-between;
-      align-items: end;
+      align-items: center;
+      justify-content: center;
 
-      gap: 2rem;
+      padding: 20px;
 
-      margin-bottom: 2rem;
-    }
+      background: #f5f5f5;
+      border: 1px solid var(--border);
 
-    .section-head h2 {
-      margin: 0;
-
-      font-size: clamp(2rem, 4vw, 3.2rem);
-    }
-
-    .section-head p {
-      margin: 0;
-
-      max-width: 520px;
-
-      color: var(--muted);
-    }
-
-    /* TECHNICAL PROJECTS */
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .project-card {
-      grid-column: span 6;
-
-      overflow: hidden;
-
-      background: var(--panel);
-
-      border: 1px solid var(--line);
-      border-radius: 1.2rem;
-    }
-
-    .project-card.featured {
-      grid-column: span 12;
-
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-    }
-
-    .project-visual {
-      min-height: 260px;
-
-      display: grid;
-      place-items: center;
-
-      padding: 1rem;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(132, 216, 255, 0.12),
-          transparent 60%
-        ),
-        linear-gradient(
-          180deg,
-          var(--panel-2),
-          var(--panel)
-        );
-
-      border-bottom: 1px solid var(--line);
-
-      color: #71809a;
-      font-size: 0.9rem;
+      color: #999999;
+      font-size: 13px;
       text-align: center;
     }
 
-    .project-card.featured .project-visual {
-      min-height: 360px;
-
-      border-bottom: 0;
-      border-right: 1px solid var(--line);
-    }
-
-    .project-content {
-      padding: 1.5rem;
-    }
-
-    .project-content h3 {
-      margin: 0 0 0.6rem;
-
-      font-size: 1.5rem;
-    }
-
-    .project-content p {
+    .project h3 {
       margin: 0;
+
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .project p {
+      margin: 10px 0 0;
 
       color: var(--muted);
     }
 
-    .tags,
+    .details {
+      margin-top: 12px;
+
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     .links {
       display: flex;
       flex-wrap: wrap;
+      gap: 14px;
 
-      gap: 0.55rem;
-
-      margin-top: 1rem;
-    }
-
-    .tag {
-      padding: 0.35rem 0.65rem;
-
-      border: 1px solid var(--line);
-      border-radius: 999px;
-
-      color: #bac5d6;
-      font-size: 0.82rem;
+      margin-top: 14px;
     }
 
     .links a {
-      color: var(--accent);
+      font-size: 14px;
 
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.92rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     /* PUBLICATIONS */
 
-    .publication-list {
+    .publication {
       display: grid;
-
-      gap: 1rem;
+      grid-template-columns: 120px 1fr;
+      gap: 25px;
     }
 
-    .publication-card {
-      display: grid;
-      grid-template-columns: 170px 1fr;
-
-      gap: 1.5rem;
-
-      padding: 1rem;
-
-      background: var(--panel);
-
-      border: 1px solid var(--line);
-      border-radius: 1rem;
-    }
-
-    .paper-thumb {
+    .paper-preview {
+      width: 120px;
       aspect-ratio: 3 / 4;
 
-      padding: 1rem;
+      padding: 12px;
+
+      background: #fafafa;
+      border: 1px solid var(--border);
 
       overflow: hidden;
-
-      background: #f7f7f4;
-
-      border: 1px solid var(--line);
-      border-radius: 0.7rem;
-
-      color: #20242b;
     }
 
-    .paper-thumb strong {
+    .paper-preview strong {
       display: block;
 
-      margin-bottom: 1rem;
+      margin-bottom: 12px;
 
-      font-size: 0.88rem;
+      font-size: 10px;
     }
 
     .paper-line {
-      height: 7px;
+      height: 4px;
+      margin-bottom: 5px;
 
-      margin-bottom: 8px;
-
-      background: #c8ccd3;
-
-      border-radius: 999px;
+      background: #d6d6d6;
     }
 
     .paper-line.short {
@@ -359,129 +237,96 @@
       width: 45%;
     }
 
-    .publication-copy h3 {
-      margin: 0 0 0.5rem;
+    .publication h3 {
+      margin: 0;
 
-      font-size: 1.45rem;
+      font-size: 20px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
     }
 
-    .publication-copy p {
-      margin: 0.45rem 0;
+    .publication p {
+      margin: 10px 0 0;
 
       color: var(--muted);
-    }
-
-    .meta {
-      color: #7f8ba0;
-      font-size: 0.9rem;
     }
 
     /* WRITING */
 
-    .writing-grid {
+    .writing-item {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: 1fr auto;
+      gap: 25px;
 
-      gap: 1rem;
+      padding: 25px 0;
+
+      border-top: 1px solid var(--border);
     }
 
-    .writing-card {
-      overflow: hidden;
-
-      background: var(--panel);
-
-      border: 1px solid var(--line);
-      border-radius: 1rem;
+    .writing-item:first-child {
+      border-top: 0;
+      padding-top: 0;
     }
 
-    .writing-visual {
-      aspect-ratio: 16 / 9;
-
-      display: grid;
-      place-items: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(132, 216, 255, 0.14),
-          transparent 65%
-        ),
-        var(--panel-2);
-
-      border-bottom: 1px solid var(--line);
-
-      color: #71809a;
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .writing-copy {
-      padding: 1.25rem;
-    }
-
-    .writing-copy h3 {
-      margin: 0 0 0.55rem;
-
-      font-size: 1.25rem;
-    }
-
-    .writing-copy p {
+    .writing-item h3 {
       margin: 0;
 
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .writing-item p {
+      margin: 10px 0 0;
+
       color: var(--muted);
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 13px;
+
+      white-space: nowrap;
     }
 
     /* FOOTER */
 
     footer {
-      padding: 2rem 0 3rem;
+      padding: 25px 0 40px;
 
-      border-top: 1px solid var(--line);
+      border-top: 1px solid var(--border);
 
       color: var(--muted);
+      font-size: 13px;
     }
 
     /* MOBILE */
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .project-card.featured,
-      .publication-card,
-      .writing-grid {
+    @media (max-width: 700px) {
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 25px;
+
+        padding-top: 45px;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .publication {
         grid-template-columns: 1fr;
       }
 
-      .project-card,
-      .project-card.featured {
-        grid-column: span 12;
-      }
-
-      .project-card.featured .project-visual {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .paper-thumb {
-        max-width: 220px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-
-        padding: 1rem 0;
-      }
-
-      .hero {
-        padding-top: 4rem;
-      }
-
-      .section-head {
-        align-items: flex-start;
-        flex-direction: column;
+      .writing-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
       }
     }
   </style>
@@ -489,525 +334,420 @@
 
 <body>
 
-  <!-- NAV -->
+  <div class="page">
 
-  <header>
-    <div class="container">
+    <!-- NAV -->
+
+    <header>
 
       <nav>
 
-        <a class="brand" href="#top">
+        <a class="name" href="#top">
           Ali Alattar
         </a>
 
         <div class="nav-links">
-          <a href="#projects">Technical Projects</a>
-          <a href="#publications">Publications</a>
-          <a href="#writing">Writing</a>
+
+          <a href="#projects">
+            Projects
+          </a>
+
+          <a href="#publications">
+            Publications
+          </a>
+
+          <a href="#writing">
+            Writing
+          </a>
+
         </div>
 
       </nav>
 
-    </div>
-  </header>
+    </header>
 
 
-  <main id="top">
+    <main id="top">
 
-    <!-- HERO -->
+      <!-- INTRO -->
 
-    <section class="hero">
-      <div class="container hero-grid">
+      <div class="intro">
 
         <div>
-
-          <p class="eyebrow">
-            Computer Science · Research · Software
-          </p>
 
           <h1>
             Ali Alattar
           </h1>
 
-          <p class="hero-copy">
-            I build technical systems, work on research problems,
-            and write about computing, AI, and education.
+          <p class="intro-description">
+            Computer science student working on technical projects,
+            research, and writing. I am especially interested in
+            artificial intelligence, algorithms, and systems.
           </p>
 
         </div>
 
 
-        <div class="hero-side">
+        <div class="intro-meta">
 
           <p>
-            <strong>Currently:</strong>
-            Computer Science student
+            Pomona College
           </p>
 
           <p>
-            <strong>Interested in:</strong>
-            AI, algorithms, systems, research tooling,
-            and technical writing
+            Computer Science
+          </p>
+
+          <p>
+            <a href="https://github.com/alattar-ali">
+              GitHub
+            </a>
+          </p>
+
+          <p>
+            <a href="#">
+              LinkedIn
+            </a>
+          </p>
+
+          <p>
+            <a href="mailto:alattar.aliii@gmail.com">
+              Email
+            </a>
           </p>
 
         </div>
 
       </div>
-    </section>
 
 
-    <!-- TECHNICAL PROJECTS -->
+      <!-- TECHNICAL PROJECTS -->
 
-    <section id="projects">
-      <div class="container">
+      <section id="projects">
 
-        <div class="section-head">
-
-          <h2>
-            Technical Projects
-          </h2>
-
-          <p>
-            Selected systems, experiments, and software I've built.
-          </p>
-
-        </div>
+        <h2 class="section-title">
+          Technical Projects
+        </h2>
 
 
-        <div class="project-grid">
+        <!-- H* DUAL -->
 
-          <!-- H* DUAL -->
+        <article class="project">
 
-          <article class="project-card featured">
+          <div class="project-image">
+            Add a path-planning visualization or benchmark graph here.
+          </div>
 
-            <div class="project-visual">
-              Put an H* Dual path visualization,
-              benchmark graph, or trajectory image here.
+
+          <div>
+
+            <h3>
+              H* Dual
+            </h3>
+
+            <p>
+              A path-planning system combining obstacle-aware
+              and kinodynamic heuristics for autonomous vehicles
+              and robots with realistic motion constraints.
+            </p>
+
+            <div class="details">
+              Python · A* · Dijkstra · Path Planning
             </div>
 
+            <div class="links">
 
-            <div class="project-content">
+              <a href="#">
+                Paper
+              </a>
 
-              <h3>
-                H* Dual
-              </h3>
-
-              <p>
-                A path-planning system combining obstacle-aware
-                and kinodynamic heuristics for autonomous vehicles
-                and robots with realistic motion constraints.
-              </p>
-
-              <div class="tags">
-
-                <span class="tag">Python</span>
-                <span class="tag">A*</span>
-                <span class="tag">Dijkstra</span>
-                <span class="tag">Path Planning</span>
-
-              </div>
-
-              <div class="links">
-
-                <a href="#">
-                  Paper
-                </a>
-
-                <a href="#">
-                  Code
-                </a>
-
-              </div>
+              <a href="#">
+                Code
+              </a>
 
             </div>
 
-          </article>
+          </div>
+
+        </article>
 
 
-          <!-- SISTANI GPT -->
+        <!-- SISTANI GPT -->
 
-          <article class="project-card">
+        <article class="project">
 
-            <div class="project-visual">
-              Put a screenshot of the SistaniGPT
-              interface or RAG pipeline here.
+          <div class="project-image">
+            Add a screenshot of the SistaniGPT interface here.
+          </div>
+
+
+          <div>
+
+            <h3>
+              SistaniGPT
+            </h3>
+
+            <p>
+              Retrieval-augmented question answering over a large
+              corpus of Islamic jurisprudence text.
+            </p>
+
+            <div class="details">
+              LangChain · LangGraph · FAISS · Flask
             </div>
 
+            <div class="links">
 
-            <div class="project-content">
+              <a href="#">
+                Code
+              </a>
 
-              <h3>
-                SistaniGPT
-              </h3>
-
-              <p>
-                A retrieval-augmented chatbot for Islamic
-                jurisprudence questions built over a large
-                indexed knowledge corpus.
-              </p>
-
-              <div class="tags">
-
-                <span class="tag">LangChain</span>
-                <span class="tag">LangGraph</span>
-                <span class="tag">FAISS</span>
-                <span class="tag">Flask</span>
-
-              </div>
-
-              <div class="links">
-
-                <a href="#">
-                  Code
-                </a>
-
-                <a href="#">
-                  Demo
-                </a>
-
-              </div>
+              <a href="#">
+                Demo
+              </a>
 
             </div>
 
-          </article>
+          </div>
+
+        </article>
 
 
-          <!-- P-SCIBOWL -->
+        <!-- P-SCIBOWL -->
 
-          <article class="project-card">
+        <article class="project">
 
-            <div class="project-visual">
-              Put your Science Bowl UI,
-              generated questions,
-              or model diagram here.
+          <div class="project-image">
+            Add a Science Bowl interface screenshot here.
+          </div>
+
+
+          <div>
+
+            <h3>
+              P-Scibowl
+            </h3>
+
+            <p>
+              A Science Bowl platform using fine-tuned language models
+              and embedding-based retrieval to generate competition-level
+              questions.
+            </p>
+
+            <div class="details">
+              PyTorch · Hugging Face · FAISS · Flask
             </div>
 
+            <div class="links">
 
-            <div class="project-content">
-
-              <h3>
-                P-Scibowl
-              </h3>
-
-              <p>
-                A Science Bowl platform using fine-tuned language
-                models and embedding-based retrieval to generate
-                competition-style questions.
-              </p>
-
-              <div class="tags">
-
-                <span class="tag">PyTorch</span>
-                <span class="tag">Hugging Face</span>
-                <span class="tag">FAISS</span>
-                <span class="tag">Flask</span>
-
-              </div>
-
-              <div class="links">
-
-                <a href="#">
-                  Code
-                </a>
-
-              </div>
+              <a href="#">
+                Code
+              </a>
 
             </div>
 
-          </article>
+          </div>
+
+        </article>
 
 
-          <!-- AMOOSHA -->
+        <!-- AMOOSHA -->
 
-          <article class="project-card">
+        <article class="project">
 
-            <div class="project-visual">
-              Put an amoosha UI screenshot,
-              product mockup,
-              or architecture diagram here.
+          <div class="project-image">
+            Add an amoosha screenshot here.
+          </div>
+
+
+          <div>
+
+            <h3>
+              amoosha
+            </h3>
+
+            <p>
+              A full-stack dating platform with authentication,
+              matching, messaging, APIs, and cloud deployment.
+            </p>
+
+            <div class="details">
+              Python · Flask · SQL · AWS
             </div>
 
+            <div class="links">
 
-            <div class="project-content">
-
-              <h3>
-                amoosha
-              </h3>
-
-              <p>
-                A full-stack dating platform with authentication,
-                user matching, messaging, APIs, and cloud deployment.
-              </p>
-
-              <div class="tags">
-
-                <span class="tag">Python</span>
-                <span class="tag">Flask</span>
-                <span class="tag">SQL</span>
-                <span class="tag">AWS</span>
-
-              </div>
-
-              <div class="links">
-
-                <a href="#">
-                  Code
-                </a>
-
-              </div>
+              <a href="#">
+                Code
+              </a>
 
             </div>
 
-          </article>
+          </div>
 
-        </div>
+        </article>
 
-      </div>
-    </section>
-
-
-    <!-- PUBLICATIONS -->
-
-    <section id="publications">
-      <div class="container">
-
-        <div class="section-head">
-
-          <h2>
-            Publications
-          </h2>
-
-          <p>
-            Research papers and formal technical work.
-          </p>
-
-        </div>
+      </section>
 
 
-        <div class="publication-list">
+      <!-- PUBLICATIONS -->
 
-          <article class="publication-card">
+      <section id="publications">
 
-            <!-- PAPER PREVIEW -->
+        <h2 class="section-title">
+          Publications
+        </h2>
 
-            <div class="paper-thumb">
 
-              <strong>
-                H* Dual
-              </strong>
+        <article class="publication">
 
-              <div class="paper-line"></div>
-              <div class="paper-line short"></div>
-              <div class="paper-line"></div>
-              <div class="paper-line tiny"></div>
+          <!-- Simple paper visual -->
 
-              <br>
+          <div class="paper-preview">
 
-              <div class="paper-line"></div>
-              <div class="paper-line"></div>
-              <div class="paper-line short"></div>
-              <div class="paper-line"></div>
+            <strong>
+              H* Dual
+            </strong>
+
+            <div class="paper-line"></div>
+            <div class="paper-line short"></div>
+            <div class="paper-line"></div>
+            <div class="paper-line tiny"></div>
+
+            <br>
+
+            <div class="paper-line"></div>
+            <div class="paper-line"></div>
+            <div class="paper-line short"></div>
+            <div class="paper-line"></div>
+
+          </div>
+
+
+          <div>
+
+            <h3>
+              H* Dual: Complementary Obstacle-Aware and
+              Kinodynamic Heuristics for Memory Optimization
+            </h3>
+
+            <p>
+              Ali Alattar
+            </p>
+
+            <div class="details">
+              August 2026
+            </div>
+
+            <p>
+              Research on memory-efficient heuristic search
+              for constrained path-planning problems.
+            </p>
+
+            <div class="links">
+
+              <a href="#">
+                PDF
+              </a>
+
+              <a href="#">
+                Code
+              </a>
+
+              <a href="#">
+                BibTeX
+              </a>
 
             </div>
 
+          </div>
 
-            <!-- PAPER INFORMATION -->
+        </article>
 
-            <div class="publication-copy">
+      </section>
 
-              <h3>
-                H* Dual: Complementary Obstacle-Aware
-                and Kinodynamic Heuristics for Memory Optimization
-              </h3>
 
-              <p>
-                Ali Alattar
-              </p>
+      <!-- WRITING -->
 
-              <p class="meta">
-                August 2026
-              </p>
+      <section id="writing">
 
-              <p>
-                Research on combining complementary heuristics
-                for memory-efficient search in constrained
-                path-planning problems.
-              </p>
+        <h2 class="section-title">
+          Writing
+        </h2>
 
-              <div class="links">
 
-                <a href="#">
-                  PDF
-                </a>
+        <article class="writing-item">
 
-                <a href="#">
-                  Code
-                </a>
+          <div>
 
-                <a href="#">
-                  BibTeX
-                </a>
+            <h3>
+              AI won’t automate work away, it will expose it.
+            </h3>
 
-              </div>
+            <p>
+              An essay on AI, automation, and how new tools
+              may change the way work is evaluated.
+            </p>
+
+            <div class="links">
+
+              <a href="#">
+                Read
+              </a>
 
             </div>
 
-          </article>
-
-        </div>
-
-      </div>
-    </section>
+          </div>
 
 
-    <!-- WRITING -->
+          <div class="date">
+            July 2026
+          </div>
 
-    <section id="writing">
-      <div class="container">
-
-        <div class="section-head">
-
-          <h2>
-            Writing
-          </h2>
-
-          <p>
-            Essays, opinion pieces, and technical writing
-            outside of formal research.
-          </p>
-
-        </div>
+        </article>
 
 
-        <div class="writing-grid">
+        <article class="writing-item">
 
-          <!-- ARTICLE 1 -->
+          <div>
 
-          <article class="writing-card">
+            <h3>
+              Pomona needs more rigor.
+              The liberal arts are at stake.
+            </h3>
 
-            <div class="writing-visual">
-              Put an article image,
-              illustration,
-              or typographic cover here.
-            </div>
+            <p>
+              An essay on academic rigor, institutional expectations,
+              and liberal arts education.
+            </p>
 
+            <div class="links">
 
-            <div class="writing-copy">
-
-              <h3>
-                AI won’t automate work away,
-                it will expose it.
-              </h3>
-
-              <p class="meta">
-                July 2026
-              </p>
-
-              <p>
-                An essay on AI, automation,
-                and how new tools may change
-                the way work is evaluated.
-              </p>
-
-              <div class="links">
-
-                <a href="#">
-                  Read article
-                </a>
-
-              </div>
+              <a href="#">
+                Read
+              </a>
 
             </div>
 
-          </article>
+          </div>
 
 
-          <!-- ARTICLE 2 -->
+          <div class="date">
+            June 2026
+          </div>
 
-          <article class="writing-card">
+        </article>
 
-            <div class="writing-visual">
-              Put a campus image,
-              newspaper clipping,
-              or article cover here.
-            </div>
+      </section>
 
-
-            <div class="writing-copy">
-
-              <h3>
-                Pomona needs more rigor.
-                The liberal arts are at stake.
-              </h3>
-
-              <p class="meta">
-                June 2026
-              </p>
-
-              <p>
-                An essay on academic rigor,
-                institutional expectations,
-                and liberal arts education.
-              </p>
-
-              <div class="links">
-
-                <a href="#">
-                  Read article
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
+    </main>
 
 
-          <!-- FUTURE ARTICLE -->
+    <footer>
+      © 2026 Ali Alattar
+    </footer>
 
-          <article class="writing-card">
-
-            <div class="writing-visual">
-              Future article visual
-            </div>
-
-
-            <div class="writing-copy">
-
-              <h3>
-                Future essay or technical note
-              </h3>
-
-              <p class="meta">
-                Coming later
-              </p>
-
-              <p>
-                Use this slot for shorter technical notes,
-                reflections, or future published writing.
-              </p>
-
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-
-  <footer>
-    <div class="container">
-
-      <p>
-        © 2026 Ali Alattar
-      </p>
-
-    </div>
-  </footer>
+  </div>
 
 </body>
 </html>
