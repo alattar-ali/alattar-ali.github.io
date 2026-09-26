@@ -3,10 +3,1011 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Ali Alattar</title>
+
+  <style>
+    :root {
+      --bg: #0a0d14;
+      --panel: #101622;
+      --panel-2: #151d2b;
+      --text: #f5f7fb;
+      --muted: #9aa6ba;
+      --line: rgba(255, 255, 255, 0.10);
+      --accent: #84d8ff;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 12% 0%,
+          rgba(132, 216, 255, 0.08),
+          transparent 32rem
+        ),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+
+      background: rgba(10, 13, 20, 0.82);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 1rem;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 7rem 0 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 3rem;
+      align-items: end;
+    }
+
+    .eyebrow {
+      margin: 0 0 1rem;
+
+      color: var(--accent);
+
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      margin: 0;
+
+      max-width: 800px;
+
+      font-size: clamp(3.7rem, 8vw, 7rem);
+    }
+
+    .hero-copy {
+      max-width: 720px;
+
+      margin: 1.5rem 0 0;
+
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .hero-side {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .hero-side strong {
+      color: var(--text);
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 5rem 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+
+      gap: 2rem;
+
+      margin-bottom: 2rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .section-head p {
+      margin: 0;
+
+      max-width: 520px;
+
+      color: var(--muted);
+    }
+
+    /* TECHNICAL PROJECTS */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      grid-column: span 6;
+
+      overflow: hidden;
+
+      background: var(--panel);
+
+      border: 1px solid var(--line);
+      border-radius: 1.2rem;
+    }
+
+    .project-card.featured {
+      grid-column: span 12;
+
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .project-visual {
+      min-height: 260px;
+
+      display: grid;
+      place-items: center;
+
+      padding: 1rem;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(132, 216, 255, 0.12),
+          transparent 60%
+        ),
+        linear-gradient(
+          180deg,
+          var(--panel-2),
+          var(--panel)
+        );
+
+      border-bottom: 1px solid var(--line);
+
+      color: #71809a;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .project-card.featured .project-visual {
+      min-height: 360px;
+
+      border-bottom: 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      margin: 0 0 0.6rem;
+
+      font-size: 1.5rem;
+    }
+
+    .project-content p {
+      margin: 0;
+
+      color: var(--muted);
+    }
+
+    .tags,
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 0.55rem;
+
+      margin-top: 1rem;
+    }
+
+    .tag {
+      padding: 0.35rem 0.65rem;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      color: #bac5d6;
+      font-size: 0.82rem;
+    }
+
+    .links a {
+      color: var(--accent);
+
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    /* PUBLICATIONS */
+
+    .publication-list {
+      display: grid;
+
+      gap: 1rem;
+    }
+
+    .publication-card {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+
+      gap: 1.5rem;
+
+      padding: 1rem;
+
+      background: var(--panel);
+
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+    }
+
+    .paper-thumb {
+      aspect-ratio: 3 / 4;
+
+      padding: 1rem;
+
+      overflow: hidden;
+
+      background: #f7f7f4;
+
+      border: 1px solid var(--line);
+      border-radius: 0.7rem;
+
+      color: #20242b;
+    }
+
+    .paper-thumb strong {
+      display: block;
+
+      margin-bottom: 1rem;
+
+      font-size: 0.88rem;
+    }
+
+    .paper-line {
+      height: 7px;
+
+      margin-bottom: 8px;
+
+      background: #c8ccd3;
+
+      border-radius: 999px;
+    }
+
+    .paper-line.short {
+      width: 70%;
+    }
+
+    .paper-line.tiny {
+      width: 45%;
+    }
+
+    .publication-copy h3 {
+      margin: 0 0 0.5rem;
+
+      font-size: 1.45rem;
+    }
+
+    .publication-copy p {
+      margin: 0.45rem 0;
+
+      color: var(--muted);
+    }
+
+    .meta {
+      color: #7f8ba0;
+      font-size: 0.9rem;
+    }
+
+    /* WRITING */
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      gap: 1rem;
+    }
+
+    .writing-card {
+      overflow: hidden;
+
+      background: var(--panel);
+
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+    }
+
+    .writing-visual {
+      aspect-ratio: 16 / 9;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(132, 216, 255, 0.14),
+          transparent 65%
+        ),
+        var(--panel-2);
+
+      border-bottom: 1px solid var(--line);
+
+      color: #71809a;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .writing-copy {
+      padding: 1.25rem;
+    }
+
+    .writing-copy h3 {
+      margin: 0 0 0.55rem;
+
+      font-size: 1.25rem;
+    }
+
+    .writing-copy p {
+      margin: 0;
+
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 2rem 0 3rem;
+
+      border-top: 1px solid var(--line);
+
+      color: var(--muted);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .project-card.featured,
+      .publication-card,
+      .writing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card,
+      .project-card.featured {
+        grid-column: span 12;
+      }
+
+      .project-card.featured .project-visual {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .paper-thumb {
+        max-width: 220px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+
+        padding: 1rem 0;
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Ali Alattar</h1>
-  <p>Computer Science</p>
+
+  <!-- NAV -->
+
+  <header>
+    <div class="container">
+
+      <nav>
+
+        <a class="brand" href="#top">
+          Ali Alattar
+        </a>
+
+        <div class="nav-links">
+          <a href="#projects">Technical Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#writing">Writing</a>
+        </div>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main id="top">
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+
+          <p class="eyebrow">
+            Computer Science · Research · Software
+          </p>
+
+          <h1>
+            Ali Alattar
+          </h1>
+
+          <p class="hero-copy">
+            I build technical systems, work on research problems,
+            and write about computing, AI, and education.
+          </p>
+
+        </div>
+
+
+        <div class="hero-side">
+
+          <p>
+            <strong>Currently:</strong>
+            Computer Science student
+          </p>
+
+          <p>
+            <strong>Interested in:</strong>
+            AI, algorithms, systems, research tooling,
+            and technical writing
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TECHNICAL PROJECTS -->
+
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-head">
+
+          <h2>
+            Technical Projects
+          </h2>
+
+          <p>
+            Selected systems, experiments, and software I've built.
+          </p>
+
+        </div>
+
+
+        <div class="project-grid">
+
+          <!-- H* DUAL -->
+
+          <article class="project-card featured">
+
+            <div class="project-visual">
+              Put an H* Dual path visualization,
+              benchmark graph, or trajectory image here.
+            </div>
+
+
+            <div class="project-content">
+
+              <h3>
+                H* Dual
+              </h3>
+
+              <p>
+                A path-planning system combining obstacle-aware
+                and kinodynamic heuristics for autonomous vehicles
+                and robots with realistic motion constraints.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">Python</span>
+                <span class="tag">A*</span>
+                <span class="tag">Dijkstra</span>
+                <span class="tag">Path Planning</span>
+
+              </div>
+
+              <div class="links">
+
+                <a href="#">
+                  Paper
+                </a>
+
+                <a href="#">
+                  Code
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- SISTANI GPT -->
+
+          <article class="project-card">
+
+            <div class="project-visual">
+              Put a screenshot of the SistaniGPT
+              interface or RAG pipeline here.
+            </div>
+
+
+            <div class="project-content">
+
+              <h3>
+                SistaniGPT
+              </h3>
+
+              <p>
+                A retrieval-augmented chatbot for Islamic
+                jurisprudence questions built over a large
+                indexed knowledge corpus.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">LangChain</span>
+                <span class="tag">LangGraph</span>
+                <span class="tag">FAISS</span>
+                <span class="tag">Flask</span>
+
+              </div>
+
+              <div class="links">
+
+                <a href="#">
+                  Code
+                </a>
+
+                <a href="#">
+                  Demo
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- P-SCIBOWL -->
+
+          <article class="project-card">
+
+            <div class="project-visual">
+              Put your Science Bowl UI,
+              generated questions,
+              or model diagram here.
+            </div>
+
+
+            <div class="project-content">
+
+              <h3>
+                P-Scibowl
+              </h3>
+
+              <p>
+                A Science Bowl platform using fine-tuned language
+                models and embedding-based retrieval to generate
+                competition-style questions.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">PyTorch</span>
+                <span class="tag">Hugging Face</span>
+                <span class="tag">FAISS</span>
+                <span class="tag">Flask</span>
+
+              </div>
+
+              <div class="links">
+
+                <a href="#">
+                  Code
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- AMOOSHA -->
+
+          <article class="project-card">
+
+            <div class="project-visual">
+              Put an amoosha UI screenshot,
+              product mockup,
+              or architecture diagram here.
+            </div>
+
+
+            <div class="project-content">
+
+              <h3>
+                amoosha
+              </h3>
+
+              <p>
+                A full-stack dating platform with authentication,
+                user matching, messaging, APIs, and cloud deployment.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">SQL</span>
+                <span class="tag">AWS</span>
+
+              </div>
+
+              <div class="links">
+
+                <a href="#">
+                  Code
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PUBLICATIONS -->
+
+    <section id="publications">
+      <div class="container">
+
+        <div class="section-head">
+
+          <h2>
+            Publications
+          </h2>
+
+          <p>
+            Research papers and formal technical work.
+          </p>
+
+        </div>
+
+
+        <div class="publication-list">
+
+          <article class="publication-card">
+
+            <!-- PAPER PREVIEW -->
+
+            <div class="paper-thumb">
+
+              <strong>
+                H* Dual
+              </strong>
+
+              <div class="paper-line"></div>
+              <div class="paper-line short"></div>
+              <div class="paper-line"></div>
+              <div class="paper-line tiny"></div>
+
+              <br>
+
+              <div class="paper-line"></div>
+              <div class="paper-line"></div>
+              <div class="paper-line short"></div>
+              <div class="paper-line"></div>
+
+            </div>
+
+
+            <!-- PAPER INFORMATION -->
+
+            <div class="publication-copy">
+
+              <h3>
+                H* Dual: Complementary Obstacle-Aware
+                and Kinodynamic Heuristics for Memory Optimization
+              </h3>
+
+              <p>
+                Ali Alattar
+              </p>
+
+              <p class="meta">
+                August 2026
+              </p>
+
+              <p>
+                Research on combining complementary heuristics
+                for memory-efficient search in constrained
+                path-planning problems.
+              </p>
+
+              <div class="links">
+
+                <a href="#">
+                  PDF
+                </a>
+
+                <a href="#">
+                  Code
+                </a>
+
+                <a href="#">
+                  BibTeX
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- WRITING -->
+
+    <section id="writing">
+      <div class="container">
+
+        <div class="section-head">
+
+          <h2>
+            Writing
+          </h2>
+
+          <p>
+            Essays, opinion pieces, and technical writing
+            outside of formal research.
+          </p>
+
+        </div>
+
+
+        <div class="writing-grid">
+
+          <!-- ARTICLE 1 -->
+
+          <article class="writing-card">
+
+            <div class="writing-visual">
+              Put an article image,
+              illustration,
+              or typographic cover here.
+            </div>
+
+
+            <div class="writing-copy">
+
+              <h3>
+                AI won’t automate work away,
+                it will expose it.
+              </h3>
+
+              <p class="meta">
+                July 2026
+              </p>
+
+              <p>
+                An essay on AI, automation,
+                and how new tools may change
+                the way work is evaluated.
+              </p>
+
+              <div class="links">
+
+                <a href="#">
+                  Read article
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 2 -->
+
+          <article class="writing-card">
+
+            <div class="writing-visual">
+              Put a campus image,
+              newspaper clipping,
+              or article cover here.
+            </div>
+
+
+            <div class="writing-copy">
+
+              <h3>
+                Pomona needs more rigor.
+                The liberal arts are at stake.
+              </h3>
+
+              <p class="meta">
+                June 2026
+              </p>
+
+              <p>
+                An essay on academic rigor,
+                institutional expectations,
+                and liberal arts education.
+              </p>
+
+              <div class="links">
+
+                <a href="#">
+                  Read article
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- FUTURE ARTICLE -->
+
+          <article class="writing-card">
+
+            <div class="writing-visual">
+              Future article visual
+            </div>
+
+
+            <div class="writing-copy">
+
+              <h3>
+                Future essay or technical note
+              </h3>
+
+              <p class="meta">
+                Coming later
+              </p>
+
+              <p>
+                Use this slot for shorter technical notes,
+                reflections, or future published writing.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container">
+
+      <p>
+        © 2026 Ali Alattar
+      </p>
+
+    </div>
+  </footer>
+
 </body>
 </html>
