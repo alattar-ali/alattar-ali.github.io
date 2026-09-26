@@ -18,7 +18,7 @@
       margin: 0;
       background: #ffffff;
       color: #000000;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Times New Roman", Times, serif;
     }
 
     a {
@@ -33,7 +33,7 @@
 
     .layout {
       display: grid;
-      grid-template-columns: 170px 1fr;
+      grid-template-columns: 170px minmax(0, 1fr);
       width: min(1100px, calc(100% - 48px));
       margin: 30px auto 80px;
       gap: 30px;
@@ -66,6 +66,7 @@
     }
 
     main {
+      min-width: 0;
       max-width: 760px;
     }
 
@@ -77,23 +78,37 @@
       padding-top: 10px;
     }
 
+    #self {
+      padding-bottom: 28px;
+    }
+
+    #technical-work,
+    #publications {
+      padding-bottom: 32px;
+    }
+
+    #technical-work > .work-item:last-child,
+    #publications > .publication-item:last-child {
+      margin-bottom: 0;
+    }
+
     .hero-image {
-      width: 100%;
-      max-height: 620px;
+      width: min(100%, 380px);
+      height: auto;
       object-fit: cover;
       display: block;
       background: #eeeeee;
     }
 
     .image-placeholder {
-      width: 100%;
+      width: min(100%, 380px);
       aspect-ratio: 4 / 3;
       background: #eeeeee;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #777777;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: inherit;
       font-size: 14px;
       text-align: center;
       padding: 20px;
@@ -101,25 +116,32 @@
 
     .intro-title {
       margin: 0 0 30px;
-      font-size: 34px;
+      font-size: 28px;
       line-height: 1.15;
       font-weight: 400;
     }
 
     .intro-text {
       max-width: 700px;
-      font-size: 30px;
-      line-height: 1.22;
+      font-size: 20px;
+      line-height: 1.4;
     }
 
     .intro-text p {
       margin: 0 0 38px;
     }
 
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
     .section-title {
       margin: 0 0 28px;
       font-size: 34px;
       font-weight: 400;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
     }
 
     .work-item,
@@ -132,7 +154,7 @@
     .publication-item h3,
     .writing-item h3 {
       margin: 0 0 8px;
-      font-size: 28px;
+      font-size: 24px;
       line-height: 1.2;
       font-weight: 400;
     }
@@ -148,6 +170,76 @@
     .meta {
       color: #555555;
       font-size: 17px !important;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project-gallery figure {
+      margin: 0;
+      min-width: 0;
+    }
+
+    .hstar-gallery {
+      max-width: 480px;
+      margin-inline: auto;
+    }
+
+    .hstar-gallery figcaption {
+      text-align: center;
+    }
+
+    .project-gallery figure:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .project-gallery .messages-figure {
+      grid-column: 1;
+      width: 100%;
+    }
+
+    .project-gallery img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .project-gallery .supporting-media {
+      aspect-ratio: 884 / 534;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .messages-figure .supporting-media {
+      background: #f3f3f3;
+    }
+
+    .project-media-placeholder {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 3;
+      padding: 20px;
+      background: #eeeeee;
+      color: #555555;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .project-gallery figcaption {
+      margin-top: 8px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 520px) {
+      .project-gallery {
+        grid-template-columns: 1fr;
+      }
     }
 
     .item-links {
@@ -191,7 +283,7 @@
       }
 
       .intro-text {
-        font-size: 24px;
+        font-size: 18px;
       }
 
       .section-title {
@@ -201,7 +293,7 @@
       .work-item h3,
       .publication-item h3,
       .writing-item h3 {
-        font-size: 24px;
+        font-size: 22px;
       }
 
       .work-item p,
@@ -256,45 +348,31 @@
 
       <section id="self">
 
-        <!--
-        When you have a photo, replace the placeholder below with:
-
         <img
           class="hero-image"
-          src="images/ali.jpg"
+          src="pic_for_personal_website.jpg"
           alt="Ali Alattar"
         >
-        -->
 
-        <div class="image-placeholder">
-          Add a photo of yourself here
+        <br>
+        <div class="intro-text">
+         Hi. I am Ali.
         </div>
-
-
-        <h2 class="intro-title">
-          I am Ali.
-        </h2>
+        <br>
 
 
         <div class="intro-text">
 
           <p>
-            I study computer science at Pomona College.
-            I am interested in artificial intelligence,
-            algorithms, systems, and building software
-            that is technically interesting and useful.
-          </p>
+            I currently study computer science at Pomona College.
+            Before that, I studied Arabic in Morocco under the NSLI-Y scholarship 
+            and went to high school in Katy, TX. 
+            <br>    
+            <br>
 
-          <p>
-            I have worked on path planning for autonomous
-            systems, multi-agent simulations,
-            retrieval-augmented generation, and other
-            software projects.
-          </p>
-
-          <p>
-            I also write about technology, education,
-            and ideas I find worth thinking about.
+            
+            I am interested in the engineering and product side of AI agents in industry. 
+            I also write op-eds ocassionally for the student journal. 
           </p>
 
         </div>
@@ -314,27 +392,91 @@
         <article class="work-item">
 
           <h3>
+            Welfare Diplomacy with Personality Agents
+          </h3>
+
+          <p>
+          This is the Welfare Diplomacy multi-agent environment I built to benchmark nash social welfare under
+          different agent behaviors. The environment provides three different agent personalities:
+          aggressor, therapist, and creative. It allows you to observe private agent messages and orders as the game unfolds. 
+          </p>
+
+          <p class="meta">
+            <a href="https://github.com/alattar-ali/welfare_diplomacy_with_agents"
+               target="_blank" rel="noopener noreferrer">
+              Code ↗
+            </a>
+          </p>
+
+          <div class="project-gallery">
+            <figure>
+              <img
+                src="diplomacy_visuals/vis.gif"
+                alt="Animation of agents moving on the Welfare Diplomacy map"
+                width="749"
+                height="439"
+              >
+              <figcaption>1. Agents moving on the map</figcaption>
+            </figure>
+            <figure class="messages-figure">
+              <img
+                class="supporting-media"
+                src="diplomacy_messages/messages_aligned.gif"
+                alt="Animation of messages exchanged between Welfare Diplomacy agents"
+                width="860"
+                height="348"
+              >
+              <figcaption>2. Agents privately messaging one another</figcaption>
+            </figure>
+            <figure>
+              <img
+                class="supporting-media"
+                src="diplomacy_visuals/welfare_points.png"
+                alt="Bar chart of accumulated welfare points for each power after W1907A"
+                width="884"
+                height="534"
+              >
+              <figcaption>3. Welfare points of each power</figcaption>
+            </figure>
+          </div>
+
+        </article>
+
+
+        <article class="work-item">
+
+          <h3>
             H* Dual
           </h3>
 
           <p>
-            Path-planning research combining obstacle-aware
-            and kinodynamic heuristics for autonomous vehicles
-            and robots with realistic motion constraints.
+            This is a memory optimization of the H* pathfinding algorithm. 
+            It uses A*  guided by the maximum of an obstacle-aware heuristic and a motion-aware heuristic. 
+            The obstacle-aware heuristic uses reverse BFS. The motion-aware heuristic uses
+            reverse Djikstra over densely indexed motion, position & direction states. 
+
           </p>
 
-          <p class="meta">
-            Python · A* · Dijkstra · Path Planning
-          </p>
+          <div class="project-gallery hstar-gallery">
+            <figure>
+              <img
+                src="h-dual_visuals/hstar_dual.gif"
+                alt="H* Dual paths across nine hex-grid scenarios with different obstacle layouts"
+                width="1104"
+                height="1017"
+                loading="lazy"
+              >
+              <figcaption>H* Dual paths across nine obstacle layouts</figcaption>
+            </figure>
+          </div>
+
 
           <div class="item-links">
 
-            <a href="#">
-              Paper
-            </a>
 
-            <a href="#">
-              Code
+            <a href="https://github.com/alattar-ali/hex-star"
+               target="_blank" rel="noopener noreferrer">
+              Code ↗
             </a>
 
           </div>
@@ -349,80 +491,22 @@
           </h3>
 
           <p>
-            Retrieval-augmented question answering over a large
-            corpus of Islamic jurisprudence text.
+            RAG chatbot powered by a large
+            corpus of Islamic jurisprudence text that follows the teachings of Ali Al-Sistani.
           </p>
 
-          <p class="meta">
-            LangChain · LangGraph · FAISS · Flask
-          </p>
 
           <div class="item-links">
 
-            <a href="#">
-              Code
+            <a href="https://github.com/alattar-ali/SistaniGPT">
+              Code ↗
             </a>
 
-            <a href="#">
-              Demo
-            </a>
 
           </div>
 
         </article>
 
-
-        <article class="work-item">
-
-          <h3>
-            P-Scibowl
-          </h3>
-
-          <p>
-            A Science Bowl platform using fine-tuned language models
-            and embedding-based retrieval to generate
-            competition-level questions.
-          </p>
-
-          <p class="meta">
-            PyTorch · Hugging Face · FAISS · Flask
-          </p>
-
-          <div class="item-links">
-
-            <a href="#">
-              Code
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <article class="work-item">
-
-          <h3>
-            amoosha
-          </h3>
-
-          <p>
-            A full-stack dating platform with authentication,
-            matching, messaging, APIs, and cloud deployment.
-          </p>
-
-          <p class="meta">
-            Python · Flask · SQL · AWS
-          </p>
-
-          <div class="item-links">
-
-            <a href="#">
-              Code
-            </a>
-
-          </div>
-
-        </article>
 
       </section>
 
@@ -453,16 +537,8 @@
 
           <div class="item-links">
 
-            <a href="#">
-              PDF
-            </a>
-
-            <a href="#">
-              Code
-            </a>
-
-            <a href="#">
-              BibTeX
+            <a href="https://www.researchgate.net/publication/411174030_H_Dual_Complementary_Obstacle-Aware_and_Kinodynamic_Heuristics_for_Memory_Optimization">
+              Paper
             </a>
 
           </div>
@@ -493,7 +569,7 @@
 
           <div class="item-links">
 
-            <a href="#">
+            <a href="https://tsl.news/ai-wont-automate-work-away-it-will-expose-it/">
               Read
             </a>
 
@@ -515,7 +591,7 @@
 
           <div class="item-links">
 
-            <a href="#">
+            <a href="https://tsl.news/pomona-needs-more-rigor-the-liberal-arts-are-at-stake/">
               Read
             </a>
 
