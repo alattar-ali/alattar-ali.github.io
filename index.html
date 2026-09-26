@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Alattar</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #000000;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      width: min(1100px, calc(100% - 48px));
+      margin: 30px auto 80px;
+      gap: 30px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 30px;
+      align-self: start;
+      text-align: right;
+    }
+
+    .sidebar h1 {
+      margin: 10px 0 6px;
+      font-size: 38px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .sidebar nav a {
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    main {
+      max-width: 760px;
+    }
+
+    section {
+      padding-bottom: 72px;
+    }
+
+    section + section {
+      padding-top: 10px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 620px;
+      object-fit: cover;
+      display: block;
+      background: #eeeeee;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #eeeeee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777777;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .intro-title {
+      margin: 0 0 30px;
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 400;
+    }
+
+    .intro-text {
+      max-width: 700px;
+      font-size: 30px;
+      line-height: 1.22;
+    }
+
+    .intro-text p {
+      margin: 0 0 38px;
+    }
+
+    .section-title {
+      margin: 0 0 28px;
+      font-size: 34px;
+      font-weight: 400;
+    }
+
+    .work-item,
+    .publication-item,
+    .writing-item {
+      margin-bottom: 42px;
+    }
+
+    .work-item h3,
+    .publication-item h3,
+    .writing-item h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+
+    .work-item p,
+    .publication-item p,
+    .writing-item p {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .meta {
+      color: #555555;
+      font-size: 17px !important;
+    }
+
+    .item-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .item-links a {
+      font-size: 18px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 760px) {
+      .layout {
+        display: block;
+        width: min(100% - 28px, 760px);
+        margin-top: 20px;
+      }
+
+      .sidebar {
+        position: static;
+        text-align: left;
+        margin-bottom: 35px;
+      }
+
+      .sidebar h1 {
+        font-size: 32px;
+      }
+
+      .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .sidebar nav a {
+        font-size: 18px;
+      }
+
+      .intro-text {
+        font-size: 24px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .work-item h3,
+      .publication-item h3,
+      .writing-item h3 {
+        font-size: 24px;
+      }
+
+      .work-item p,
+      .publication-item p,
+      .writing-item p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <h1>
+        Ali
+      </h1>
+
+      <nav>
+
+        <a href="#self">
+          Self
+        </a>
+
+        <a href="#technical-work">
+          Technical Work
+        </a>
+
+        <a href="#publications">
+          Publications
+        </a>
+
+        <a href="#writing">
+          Writing
+        </a>
+
+      </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+      <!-- SELF -->
+
+      <section id="self">
+
+        <!--
+        When you have a photo, replace the placeholder below with:
+
+        <img
+          class="hero-image"
+          src="images/ali.jpg"
+          alt="Ali Alattar"
+        >
+        -->
+
+        <div class="image-placeholder">
+          Add a photo of yourself here
+        </div>
+
+
+        <h2 class="intro-title">
+          I am Ali.
+        </h2>
+
+
+        <div class="intro-text">
+
+          <p>
+            I study computer science at Pomona College.
+            I am interested in artificial intelligence,
+            algorithms, systems, and building software
+            that is technically interesting and useful.
+          </p>
+
+          <p>
+            I have worked on path planning for autonomous
+            systems, multi-agent simulations,
+            retrieval-augmented generation, and other
+            software projects.
+          </p>
+
+          <p>
+            I also write about technology, education,
+            and ideas I find worth thinking about.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- TECHNICAL WORK -->
+
+      <section id="technical-work">
+
+        <h2 class="section-title">
+          Technical Work
+        </h2>
+
+
+        <article class="work-item">
+
+          <h3>
+            H* Dual
+          </h3>
+
+          <p>
+            Path-planning research combining obstacle-aware
+            and kinodynamic heuristics for autonomous vehicles
+            and robots with realistic motion constraints.
+          </p>
+
+          <p class="meta">
+            Python · A* · Dijkstra · Path Planning
+          </p>
+
+          <div class="item-links">
+
+            <a href="#">
+              Paper
+            </a>
+
+            <a href="#">
+              Code
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="work-item">
+
+          <h3>
+            SistaniGPT
+          </h3>
+
+          <p>
+            Retrieval-augmented question answering over a large
+            corpus of Islamic jurisprudence text.
+          </p>
+
+          <p class="meta">
+            LangChain · LangGraph · FAISS · Flask
+          </p>
+
+          <div class="item-links">
+
+            <a href="#">
+              Code
+            </a>
+
+            <a href="#">
+              Demo
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="work-item">
+
+          <h3>
+            P-Scibowl
+          </h3>
+
+          <p>
+            A Science Bowl platform using fine-tuned language models
+            and embedding-based retrieval to generate
+            competition-level questions.
+          </p>
+
+          <p class="meta">
+            PyTorch · Hugging Face · FAISS · Flask
+          </p>
+
+          <div class="item-links">
+
+            <a href="#">
+              Code
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="work-item">
+
+          <h3>
+            amoosha
+          </h3>
+
+          <p>
+            A full-stack dating platform with authentication,
+            matching, messaging, APIs, and cloud deployment.
+          </p>
+
+          <p class="meta">
+            Python · Flask · SQL · AWS
+          </p>
+
+          <div class="item-links">
+
+            <a href="#">
+              Code
+            </a>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- PUBLICATIONS -->
+
+      <section id="publications">
+
+        <h2 class="section-title">
+          Publications
+        </h2>
+
+
+        <article class="publication-item">
+
+          <h3>
+            H* Dual: Complementary Obstacle-Aware and
+            Kinodynamic Heuristics for Memory Optimization
+          </h3>
+
+          <p>
+            Ali Alattar
+          </p>
+
+          <p class="meta">
+            August 2026
+          </p>
+
+          <div class="item-links">
+
+            <a href="#">
+              PDF
+            </a>
+
+            <a href="#">
+              Code
+            </a>
+
+            <a href="#">
+              BibTeX
+            </a>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- WRITING -->
+
+      <section id="writing">
+
+        <h2 class="section-title">
+          Writing
+        </h2>
+
+
+        <article class="writing-item">
+
+          <h3>
+            AI won’t automate work away, it will expose it.
+          </h3>
+
+          <p class="meta">
+            July 2026
+          </p>
+
+          <div class="item-links">
+
+            <a href="#">
+              Read
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="writing-item">
+
+          <h3>
+            Pomona needs more rigor.
+            The liberal arts are at stake.
+          </h3>
+
+          <p class="meta">
+            June 2026
+          </p>
+
+          <div class="item-links">
+
+            <a href="#">
+              Read
+            </a>
+
+          </div>
+
+        </article>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
